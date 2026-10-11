@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<title>Wakatatsu-yo</title><link>https://wakatatsu-yo.github.io/</link><description>记录学习、项目与生活中的思考。</description><language>zh-CN</language>
+<item><title>这个博客如何搭建</title><link>https://wakatatsu-yo.github.io/posts/building-this-blog/</link><guid>https://wakatatsu-yo.github.io/posts/building-this-blog/</guid><pubDate>Sun, 11 Oct 2026 09:30:00 &#43;0800</pubDate><description>Hugo、PaperMod 与 GitHub Pages：从本地 Markdown 到公开网页。</description></item>
+</channel></rss>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>这个博客如何搭建 | Wakatatsu-yo</title>
+<meta name="keywords" content="Hugo, GitHub Pages, 博客">
+<meta name="description" content="Hugo、PaperMod 与 GitHub Pages：从本地 Markdown 到公开网页。">
+<meta name="author" content="Wakatatsu-yo">
+<link rel="canonical" href="https://wakatatsu-yo.github.io/posts/building-this-blog/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b94b93d66da564de6a4c452ff4d26932fb338c6c43d3b32010c96d0d5402114d.css" integrity="sha256-uUuT1m2lZN5qTEUv9NJpMvszjGxD07MgEMltDVQCEU0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wakatatsu-yo.github.io/favicon.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wakatatsu-yo.github.io/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wakatatsu-yo.github.io/favicon.svg">
+<link rel="apple-touch-icon" href="https://wakatatsu-yo.github.io/favicon.svg">
+<link rel="mask-icon" href="https://wakatatsu-yo.github.io/favicon.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://wakatatsu-yo.github.io/posts/building-this-blog/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://wakatatsu-yo.github.io/posts/building-this-blog/">
+  <meta property="og:site_name" content="Wakatatsu-yo">
+  <meta property="og:title" content="这个博客如何搭建">
+  <meta property="og:description" content="Hugo、PaperMod 与 GitHub Pages：从本地 Markdown 到公开网页。">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-10-11T09:30:00+08:00">
+    <meta property="article:modified_time" content="2026-10-11T09:30:00+08:00">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="GitHub Pages">
+    <meta property="article:tag" content="博客">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="这个博客如何搭建">
+  <meta name="twitter:description" content="Hugo、PaperMod 与 GitHub Pages：从本地 Markdown 到公开网页。">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wakatatsu-yo.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "这个博客如何搭建",
+      "item": "https://wakatatsu-yo.github.io/posts/building-this-blog/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "这个博客如何搭建",
+  "name": "这个博客如何搭建",
+  "description": "Hugo、PaperMod 与 GitHub Pages：从本地 Markdown 到公开网页。",
+  "keywords": [
+    "Hugo", "GitHub Pages", "博客"
+  ],
+  "articleBody": "网站的组成 这个博客使用 Hugo 将 Markdown 文章生成静态网页，PaperMod 提供页面主题，GitHub Pages 负责网站托管。\n源码保存在私有仓库，另一个公开仓库只保存生成后的 HTML、CSS、JavaScript、图片及订阅文件。已经发布的文章可以在浏览器里阅读，网页文件也可以查看；未发布的 Markdown 草稿保留在私有源码中。\n本地写作 文章和配图放在同一个文件夹中。正式构建会排除草稿和未来日期文章；本地预览可以显示草稿，方便边写边检查。\n分类用于区分技术与生活，标签用于连接不同文章。每篇文章使用固定的英文 slug，便于保留稳定的网址。\n发布过程 在本地编辑 Markdown。 启动预览，检查文字、图片和目录。 运行发布脚本，生成一份干净的正式网页。 将源码推送到私有仓库备份。 将生成后的网页推送到公开发布仓库。 GitHub Pages 自动部署更新。 构建失败时，发布脚本会停止，线上继续保留上一次成功发布的内容。\nSet-Location F:\\Code\\wakatatsu-yo-blog .\\scripts\\Preview.ps1 # 检查后停止预览，运行发布 .\\scripts\\Publish.ps1 -Message \"更新博客\" 本次使用的 Hugo 版本为 0.167.0，PaperMod 固定到 d376885。环境初始化时校验官方 Hugo 下载包的 SHA256。\n搜索与评论 搜索在浏览器中读取本站生成的文章索引，能搜索标题和正文。试试在搜索页输入“正式构建”或“Hugo”。\n评论使用 giscus，将讨论保存到 GitHub Discussions。读者需要登录 GitHub 才能发表评论，不需要独立的评论服务器。\n以后绑定自己的域名 文章路径保持为 /posts/英文-slug/。以后添加自定义域名时，更新站点地址并配置 Pages 即可；评论按文章路径关联，换域名时可以继续使用。\n",
+  "wordCount" : "652",
+  "inLanguage": "zh",
+  "datePublished": "2026-10-11T09:30:00+08:00",
+  "dateModified": "2026-10-11T09:30:00+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Wakatatsu-yo"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wakatatsu-yo.github.io/posts/building-this-blog/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Wakatatsu-yo",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wakatatsu-yo.github.io/favicon.svg"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://wakatatsu-yo.github.io/" accesskey="h" title="Wakatatsu-yo (Alt + H)">Wakatatsu-yo</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://wakatatsu-yo.github.io/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wakatatsu-yo.github.io/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wakatatsu-yo.github.io/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wakatatsu-yo.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wakatatsu-yo.github.io/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/">主页</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      这个博客如何搭建
+    </h1>
+    <div class="post-description">
+      Hugo、PaperMod 与 GitHub Pages：从本地 Markdown 到公开网页。
+    </div>
+    <div class="post-meta">
+
+<span title='2026-10-11 09:30:00 +0800 CST'>2026-10-11</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>Wakatatsu-yo</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">目录</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#%e7%bd%91%e7%ab%99%e7%9a%84%e7%bb%84%e6%88%90" aria-label="网站的组成">网站的组成</a></li>
+            <li>
+                <a href="#%e6%9c%ac%e5%9c%b0%e5%86%99%e4%bd%9c" aria-label="本地写作">本地写作</a></li>
+            <li>
+                <a href="#%e5%8f%91%e5%b8%83%e8%bf%87%e7%a8%8b" aria-label="发布过程">发布过程</a></li>
+            <li>
+                <a href="#%e6%90%9c%e7%b4%a2%e4%b8%8e%e8%af%84%e8%ae%ba" aria-label="搜索与评论">搜索与评论</a></li>
+            <li>
+                <a href="#%e4%bb%a5%e5%90%8e%e7%bb%91%e5%ae%9a%e8%87%aa%e5%b7%b1%e7%9a%84%e5%9f%9f%e5%90%8d" aria-label="以后绑定自己的域名">以后绑定自己的域名</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><h2 id="网站的组成">网站的组成<a hidden class="anchor" aria-hidden="true" href="#网站的组成">#</a></h2>
+<p>这个博客使用 Hugo 将 Markdown 文章生成静态网页，PaperMod 提供页面主题，GitHub Pages 负责网站托管。</p>
+<p>源码保存在私有仓库，另一个公开仓库只保存生成后的 HTML、CSS、JavaScript、图片及订阅文件。已经发布的文章可以在浏览器里阅读，网页文件也可以查看；未发布的 Markdown 草稿保留在私有源码中。</p>
+<p><img alt="私有源码经 Hugo 本地构建为公开网页" loading="lazy" src="/posts/building-this-blog/workflow.svg"></p>
+<h2 id="本地写作">本地写作<a hidden class="anchor" aria-hidden="true" href="#本地写作">#</a></h2>
+<p>文章和配图放在同一个文件夹中。正式构建会排除草稿和未来日期文章；本地预览可以显示草稿，方便边写边检查。</p>
+<p>分类用于区分技术与生活，标签用于连接不同文章。每篇文章使用固定的英文 slug，便于保留稳定的网址。</p>
+<h2 id="发布过程">发布过程<a hidden class="anchor" aria-hidden="true" href="#发布过程">#</a></h2>
+<ol>
+<li>在本地编辑 Markdown。</li>
+<li>启动预览，检查文字、图片和目录。</li>
+<li>运行发布脚本，生成一份干净的正式网页。</li>
+<li>将源码推送到私有仓库备份。</li>
+<li>将生成后的网页推送到公开发布仓库。</li>
+<li>GitHub Pages 自动部署更新。</li>
+</ol>
+<p>构建失败时，发布脚本会停止，线上继续保留上一次成功发布的内容。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Set-Location</span> <span class="n">F:</span><span class="p">\</span><span class="n">Code</span><span class="p">\</span><span class="nb">wakatatsu-yo</span><span class="n">-blog</span>
+</span></span><span class="line"><span class="cl"><span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">Preview</span><span class="p">.</span><span class="py">ps1</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 检查后停止预览，运行发布</span>
+</span></span><span class="line"><span class="cl"><span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">Publish</span><span class="p">.</span><span class="py">ps1</span> <span class="n">-Message</span> <span class="s2">&#34;更新博客&#34;</span>
+</span></span></code></pre></div><p>本次使用的 Hugo 版本为 0.167.0，PaperMod 固定到 d376885。环境初始化时校验官方 Hugo 下载包的 SHA256。</p>
+<h2 id="搜索与评论">搜索与评论<a hidden class="anchor" aria-hidden="true" href="#搜索与评论">#</a></h2>
+<p>搜索在浏览器中读取本站生成的文章索引，能搜索标题和正文。试试在搜索页输入“正式构建”或“Hugo”。</p>
+<p>评论使用 giscus，将讨论保存到 GitHub Discussions。读者需要登录 GitHub 才能发表评论，不需要独立的评论服务器。</p>
+<h2 id="以后绑定自己的域名">以后绑定自己的域名<a hidden class="anchor" aria-hidden="true" href="#以后绑定自己的域名">#</a></h2>
+<p>文章路径保持为 /posts/英文-slug/。以后添加自定义域名时，更新站点地址并配置 Pages 即可；评论按文章路径关联，换域名时可以继续使用。</p>
+
+
+  </div>
+<div class="post-categories">分类：<a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></div>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://wakatatsu-yo.github.io/tags/hugo/">Hugo</a></li>
+      <li><a href="https://wakatatsu-yo.github.io/tags/github-pages/">GitHub Pages</a></li>
+      <li><a href="https://wakatatsu-yo.github.io/tags/%E5%8D%9A%E5%AE%A2/">博客</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://wakatatsu-yo.github.io/posts/hello-wakatatsu/">
+    <span class="title">下一页 »</span>
+    <span>你好，Wakatatsu-yo</span>
+  </a>
+</nav>
+
+  </footer>
+<section class="post-comments" aria-label="评论">
+<h2>交流与评论</h2>
+
+
+<div class="giscus"></div>
+<script>
+(function(){
+ const script=document.createElement('script');
+ script.src='https://giscus.app/client.js';
+ const attrs={'data-repo':"Wakatatsu-yo/Wakatatsu-yo.github.io",'data-repo-id':"R_kgDOVEiXuA",'data-category':"Announcements",'data-category-id':"DIC_kwDOVEiXuM4DHi60",'data-mapping':'pathname','data-strict':'1','data-reactions-enabled':'1','data-emit-metadata':'0','data-input-position':'top','data-theme':document.documentElement.dataset.theme==='dark'?'dark':'light','data-lang':'zh-CN','data-loading':'lazy','crossorigin':'anonymous'};
+ Object.entries(attrs).forEach(([key,value])=>script.setAttribute(key,value));script.async=true;document.querySelector('.giscus').appendChild(script);
+ const sync=()=>{const frame=document.querySelector('iframe.giscus-frame');if(frame)frame.contentWindow.postMessage({giscus:{setConfig:{theme:document.documentElement.dataset.theme==='dark'?'dark':'light'}}},'https://giscus.app');};
+ new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>
+
+<p class="comments-note">发表评论需要 GitHub 登录。若评论区无法加载，也可以前往 <a href="https://github.com/Wakatatsu-yo/Wakatatsu-yo.github.io/discussions" target="_blank" rel="noopener">GitHub Discussions</a> 交流。</p>
+
+</section>
+
+
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://wakatatsu-yo.github.io/">Wakatatsu-yo</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

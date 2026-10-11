@@ -1,0 +1,10 @@
+{
+  "origins": [
+    "https://wakatatsu-yo.github.io"
+  ],
+  "originsRegex": [
+    "^http://localhost:1313$",
+    "^http://127\\.0\\.0\\.1:1313$"
+  ],
+  "defaultCommentOrder": "oldest"
+}
